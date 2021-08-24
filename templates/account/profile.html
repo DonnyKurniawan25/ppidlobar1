@@ -1,0 +1,45 @@
+{% extends "account/base.html" %}
+{% block content %}
+<header><h3>Profil Admin SKPD</h3></header>
+	<div class='module_content'>
+	<form action='admin_profile.php?proses=edit&id=75' method='post' enctype='multipart/form-data' class='f-r' >
+	<table class='tabelform tabpad'>
+	<tr>
+	<td>SKPD</td><td>:</td><td>
+	
+ 
+ BPKAD                              
+
+	
+	</tr>
+	<tr>
+	
+	<td>Terakhir Login </td><td>:</td><td><input name='no' type='text' value ='2021-06-22 00:00:00' disabled></td>
+	
+	</tr>
+	<tr>
+	
+	<td>User Name</td><td>:</td><td><input name='no' type='text' value ='bpkadlobar' disabled></td>
+	
+	</tr>
+	
+	<tr>
+	<td>Nama Lengkap</td><td>:</td><td><input class='input' name='nama' type='text' value ='BPKAD'></td>
+	</tr>
+	<tr>
+	<td>Email</td><td>:</td><td><input class='input' name='email' type='text' value ='programbpkadlobar@gmail.com'></td>
+	</tr>
+	<tr>
+	<td>Telp</td><td>:</td><td><input class='input' name='telp' type='text' value ='03706184183'></td>
+	</tr>
+	
+	
+	
+	<tr>
+	<td></td><td></td><td><input type=submit value=Simpan>
+	<input type=button value=Batal onclick=self.history.back()>
+	</td>
+	</tr>
+	</table>
+	</form>
+{% endblock %}

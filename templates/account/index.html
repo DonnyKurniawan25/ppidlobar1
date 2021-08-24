@@ -1,0 +1,40 @@
+{% extends "account/base.html" %}
+{% load static %}
+{% block content %}
+<header><h3 class="tabs_involved">Content Manager</h3>
+		<ul class="tabs">
+   			<li><a href="#tab1">DIP</a></li>
+    		<li><a href="#tab2">Artikel</a></li>
+		</ul>
+		</header>
+
+		<div class="tab_container">
+			<div id="tab1" class="tab_content">
+                <table class='tablesorter'><thead>
+                    <thead> 
+                        <tr> 
+                            <th>Code</th> 
+                            <th>Judul DIP</th> 
+                            <th>SKPD</th> 
+                            <th>Tanggal</th> 
+                            <th>Actions</th> 
+                        </tr> 
+                    </thead> 
+                    <tbody>
+                        {% for shows in show%}
+                    <tr>
+                        <td class='left'  width='25'>{{ shows.code }}</td>
+                        <td class='left'>{{ shows.title }}</td>		
+                        <td class='left'>{{ shows.dinas }}</td>		 
+                        <td class='left'>{{ shows.date }}</td>
+                        <td class='center' width='60'><a href=edit_ppid.php?id=5428&dinas=8&jenis=4&kategori=4><img src='{% static 'admin/images/icn_edit.png' %}' border='0' title='edit' /></a>
+                        <a href="add_ppid.php?proses=del&id=5428" onClick="return confirm('Apakah Anda benar-benar mau menghapusnya?')"><img src='{% static 'admin/images/icn_alert_error.png' %}' border='0' title='hapus' ></a>
+                        </td>
+                    </tr>
+                    {%endfor%}
+                </table>
+            </div><!-- end of #tab1 -->
+        </div><!-- end of .tab_container -->
+        
+
+{% endblock %}

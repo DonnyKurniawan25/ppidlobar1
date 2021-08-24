@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8"/>
+	<title>Dashboard PPID Lombok Barat Admin Panel</title>
+
+    {% include "account/snippet/styles.html" %}
+    {% include "account/snippet/scripts.html" %} 
+</head>
+<body>
+    {% include "account/snippet/header.html" %} 
+
+	<section id="secondary_bar">
+		<div class="user">
+			<p>{{user}} (<a href="#">{{user.first_name}}</a>)</p>
+			<!-- <a class="logout_user" href="#" title="Logout">Logout</a> -->
+		</div>
+		<div class="breadcrumbs_container">
+			<article class="breadcrumbs"><a href="index.html">Website Admin</a> <div class="breadcrumb_divider"></div> <a class="current">Dashboard</a></article>
+		</div>
+	</section><!-- end of secondary bar -->
+	
+	<aside id="sidebar" class="column">
+	
+        {% include "account/snippet/sidebar.html" %} 
+		
+        {% include "account/snippet/footer.html" %} 
+
+	</aside><!-- end of sidebar -->
+	
+	<section id="main" class="column">
+		
+		<h4 class="alert_info">Selamat Datang Admin PPID Kabupaten Lombok Barat</h4>
+		
+		<article class="module width_full">
+			<header><h3>Stats</h3></header> 
+			<div class="module_content">
+				<article class="stats_graph">
+					<div class="chart-container" style="position: relative; height:45vh; width:20vw; padding-left: 290px">
+						<canvas id="myChart" ></canvas>
+					</div>
+				</article>
+				
+				<article class="stats_overview">
+					<div class="overview_today">
+                    
+						<p class="overview_day">Total</p>
+						<p class="overview_count">{{ dip_count }}</p>
+						<p class="overview_day">Serta Merta</p>
+						<p class="overview_count">{{ dip2_count}}</p>
+						
+					</div>
+					<div class="overview_previous">
+						<p class="overview_day">Berkala</p>
+						<p class="overview_count">{{ dip1_count }}</p>
+						<p class="overview_day">Setiap Saat</p>
+						<p class="overview_count">{{ dip3_count }}</p>
+						
+					</div>
+				</article>
+				
+				<div class="clear"></div>
+			</div>
+		</article><!-- end of stats article -->
+		
+		<article class="module width_3_quarter">
+		
+              {% block content %}
+
+              {% endblock %}		
+            
+	</article><!-- end of content manager article -->
+	<article class="module width_quarter">
+			<header><h3>DIP Paling Banyak Dilihat</h3></header>
+			<div class="message_list">
+				<div class="module_content">
+					<div class="message"><p>
+						<a href=edit_ppid.php?id=1983&dinas=18&jenis=2 &kategori=4 > 
+						foto sarana penerima informasi</li>	 </a></p><p><strong>Tampil   998 X</strong></p>
+					</div>
+					<div class="message"><p>
+						<a href=edit_ppid.php?id=795&dinas=25&jenis=3 &kategori=4 > 
+						Penyerahan Hand Tractor</li>	 </a></p><p><strong>Tampil   995 X</strong></p>
+					</div>
+					<div class="message"><p>
+						<a href=edit_ppid.php?id=2587&dinas=14&jenis=2 &kategori= > 
+						LAPORAN TAHUNAN 2017</li>	 </a></p><p><strong>Tampil   995 X</strong></p>
+					</div>
+					<div class="message"><p>
+						<a href=edit_ppid.php?id=56&dinas=5&jenis=2 &kategori=4 > 
+						LKPD 2014 - Neraca_Dinas Pendidikan & Kebudayaan</li>	 </a></p><p><strong>Tampil   993 X</strong></p>
+					</div>
+				</div>
+			</div>
+			<footer>
+				<form class="post_message">
+					<input type="text" value="Message" onfocus="if(!this._haschanged){this.value=''};this._haschanged=true;">
+					<input type="submit" class="btn_post_message" value=""/>
+				</form>
+			</footer>
+		</article><!-- end of messages article -->
+		
+		<div class="clear"></div>
+	
+<script>
+  // === include 'setup' then 'config' above ===
+
+  var myChart = new Chart(
+    document.getElementById('myChart'),
+    config
+  );
+</script>
+
+<script type="text/javascript">
+	
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+        labels: ['Serta Merta', 'Berkala', 'Setiap Saat'],
+        datasets: [{
+            label: '',
+            data: [{{ dip2_count}}, {{ dip1_count}}, {{ dip3_count}}],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)'
+            ],
+            borderWidth: 2
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+
+</script>
+		
+		
+ 

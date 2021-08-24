@@ -1,0 +1,90 @@
+{% extends "account/base_crud.html" %}
+{% load static %}
+
+{% block content %}
+<header><h3>Informasi Data PPID</h3></header>
+<div class="module_content">
+    <link rel="stylesheet" href="css/tgl3.css" type="text/css" />
+    <script type="text/javascript" src="{% static 'admin/js/tgl.js' %}"></script>
+	<script type="text/javascript" src="{% static 'admin/js/tgl2.js' %}"></script>
+	<script type="text/javascript">
+		$(function() {
+		$( "#kalender" ).datepicker({
+			changeMonth: true,
+			changeYear: true
+		});
+		});
+		$(function() {
+		$( "#kalender2" ).datepicker({
+			changeMonth: true,
+			changeYear: true
+		});
+		});
+	</script> 
+    <link rel="stylesheet" href="{% static 'admin/js/jquery-uiauto.css' %}" />
+    <script src="{% static 'admin/js/jquery-1.8.3auto.js' %}"></script>
+    <script src="{% static 'admin/js/jquery-uiauto.js' %}"></script>
+ 
+        <script>
+    /*autocomplete muncul setelah user mengetikan minimal2 karakter */
+        $(function() {  
+            $( "#anime" ).autocomplete({
+            source: "auto.php",  
+            minLength:2, 
+            });
+        });
+        </script>
+            <script>
+    /*autocomplete muncul setelah user mengetikan minimal2 karakter */
+        $(function() {  
+            $( "#judulauto" ).autocomplete({
+            source: "autojudul.php",  
+            minLength:4, 
+            });
+        });
+        </script>
+    {{ form.errors }}
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <fieldset>
+			<label>Kode DIP</label>
+		    {{form.code}}
+        </fieldset>
+        <fieldset>
+            <label>Judul DIP</label>
+            {{form.title}}
+        </fieldset>
+        <fieldset>
+            <label>Penanggung Jawab Penerbitan</label>
+            {{form.responsible}}
+        </fieldset>
+        <fieldset>
+            <label>Deskripsi DIP</label>
+            {{ form.information }}
+        </fieldset>
+		<fieldset style="width:100%; float:left; margin-right: 3%;"> <!-- to make two field float next to one another, adjust values accordingly -->
+		 <label>Jenis Informasi</label>
+           {{ form.type_data}}
+        </fieldset>
+        <fieldset style="width:50%; float:left; margin-right: 1%;" > <!-- to make two field float next to one another, adjust values accordingly -->
+            <h4 class="alert_warning">	<label >Upload File</label>
+            {{ form.file }}</h4>
+		</fieldset>
+        <fieldset style="width:48%; float:left;"> <!-- to make two field float next to one another, adjust values accordingly -->
+            <label>Retensi Arsip - Mulai</label>
+            {{ form.date_a}} 
+            <label>Retensi Arsip - Sampai</label>
+            {{ form.date_b }}
+        </fieldset>
+    <div class="clear"></div>
+</div>
+<footer>
+    <div class="submit_link">
+        <input type="submit" value="Update" name="Submit" class="alt_btn">
+        <input type="submit" value="Reset">
+    </div>
+</footer>
+</form>
+
+
+{% endblock%}

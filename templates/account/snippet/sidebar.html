@@ -1,0 +1,37 @@
+{% load static %}
+<form class="quick_search">
+        <input type="text" value="Quick Search" onfocus="if(!this._haschanged){this.value=''};this._haschanged=true;">
+</form>
+    <hr/>
+    <h3>DASHBOARD</h3>
+    <ul class="toggle">
+        <li class="icn_categories"><a href="{% url 'dashboard' %}">Dashboard</a></li>
+    </ul>
+	<h3>DIP</h3>
+    <ul class="toggle">
+        <li class="icn_photo"><a href="{% url 'datappid' %}">Daftar DIP</a></li>
+        <li class="icn_new_article"><a href="{% url 'create' %}">Tambahkan DIP</a></li>
+        <li class="icn_edit_article"><a href="ppid_skpd.php">Ubah Data PPID</a></li>
+        </li>
+    </ul>
+    <h3>Permintaan DIP</h3>
+    <ul class="icn_view_users">
+        <li class="icn_settings"><a href="permin_dip.php?proses=permin&id=51">Daftar Pemohon</a></li>
+    </ul>
+    <h3>LAPORAN</h3>
+    <ul class="toggle">
+    <li class="icn_tags"><a href="laporan/ppidskpd_view.php">DIP</a></li>
+        <li class="icn_folder"><a href="laporan/perminskpd_view.php"> Permintaan DIP</a></li>
+    </ul>
+    <h3>ADMIN</h3>
+    <ul class="toggle">
+        <li class="icn_profile"><a href="{% url 'profile' %}">Profil</a></li>
+        <li class="icn_jump_back"><a href="admin_profile.php?proses=pass">Ubah Pasword</a></li>
+        <li class="icn_jump_back"><a href="{% url 'logout' %}">Logout</a></li>
+    </ul>		
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>

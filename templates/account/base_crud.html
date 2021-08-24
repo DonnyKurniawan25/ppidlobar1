@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<style>
+	.errorlist{
+		list-style-type:none;
+		color:red;
+		font-size: 12px;
+		margin: 0;
+		padding: 1;
+	}
+</style>
+<head>
+	<meta charset="utf-8"/>
+	<title>Dashboard PPID Lombok Barat Admin Panel</title>
+
+    {% include "account/snippet/styles.html" %}
+    {% include "account/snippet/scripts.html" %} 
+</head>
+<body>
+    {% include "account/snippet/header.html" %} 
+
+	<section id="secondary_bar">
+		<div class="user">
+			<p>{{user}} (<a href="#">{{user}}</a>)</p>
+			<!-- <a class="logout_user" href="#" title="Logout">Logout</a> -->
+		</div>
+		<div class="breadcrumbs_container">
+			<article class="breadcrumbs"><a href="index.html">Website Admin</a> <div class="breadcrumb_divider"></div> <a class="current">Dashboard</a></article>
+		</div>
+	</section><!-- end of secondary bar -->
+	
+	<aside id="sidebar" class="column">
+	
+        {% include "account/snippet/sidebar.html" %} 
+		
+        {% include "account/snippet/footer.html" %} 
+
+	</aside><!-- end of sidebar -->
+	
+	<section id="main" class="column">
+		
+		<h4 class="alert_info">Selamat Datang Admin PPID Kabupaten Lombok Barat</h4>
+		
+		<article class="module width_full">
+		
+              {% block content %}
+
+              {% endblock %}		
+            
+	</article><!-- end of content manager article -->
+	<div class="clear"></div>
+		
+		
+ 
