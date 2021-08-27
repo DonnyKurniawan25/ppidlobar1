@@ -182,25 +182,245 @@ def index(request):
     return render(request, 'ppid/index.html', context)
 
 def addreas(request):
-    return render(request, 'ppid/addreas.html')
+    show = Data.objects.filter(title__icontains='alamat')
+    dip = Data.objects.all()
+    dip_count = dip.count()
+
+    dip_1 = Data.objects.filter(type_data = '2')
+    dip1_count = dip_1.count()
+
+    dip_2 = Data.objects.filter(type_data = '3')
+    dip2_count = dip_2.count()
+
+    dip_3 = Data.objects.filter(type_data = '4')
+    dip3_count = dip_3.count()
+
+    subQry = Subquery(Data.objects.filter(dinas_id = OuterRef('id')).values('dinas_id').annotate(jml=Count('id')).values('jml'))
+    opd_count = Dinas.objects.all().annotate(jumlah=subQry)
+
+    p = Paginator(show, 10)
+
+    page_num = request.GET.get('page',1)
+
+    try:
+        show = p.page(page_num)
+    except EmptyPage:
+        show = p.page(1)
+
+    context = {
+        'show':show,
+        'dip_count':dip_count,
+        'dip3_count':dip3_count,
+        'dip2_count':dip2_count,
+        'dip1_count':dip1_count,
+        'opd_count':opd_count,
+    }
+    return render(request, 'ppid/addreas.html', context)
 
 def visimisi(request):
-    return render(request, 'ppid/visimisi.html')
+    show = Data.objects.filter(title__icontains='misi')
+    dip = Data.objects.all()
+    dip_count = dip.count()
+
+    dip_1 = Data.objects.filter(type_data = '2')
+    dip1_count = dip_1.count()
+
+    dip_2 = Data.objects.filter(type_data = '3')
+    dip2_count = dip_2.count()
+
+    dip_3 = Data.objects.filter(type_data = '4')
+    dip3_count = dip_3.count()
+
+    subQry = Subquery(Data.objects.filter(dinas_id = OuterRef('id')).values('dinas_id').annotate(jml=Count('id')).values('jml'))
+    opd_count = Dinas.objects.all().annotate(jumlah=subQry)
+
+    p = Paginator(show, 10)
+
+    page_num = request.GET.get('page',1)
+
+    try:
+        show = p.page(page_num)
+    except EmptyPage:
+        show = p.page(1)
+
+    context = {
+        'show':show,
+        'dip_count':dip_count,
+        'dip3_count':dip3_count,
+        'dip2_count':dip2_count,
+        'dip1_count':dip1_count,
+        'opd_count':opd_count,
+    }
+    return render(request, 'ppid/visimisi.html', context)
 
 def structure(request):
-    return render(request, 'ppid/structure.html')
+    show = Data.objects.filter(title__icontains='struktur')
+    dip = Data.objects.all()
+    dip_count = dip.count()
+
+    dip_1 = Data.objects.filter(type_data = '2')
+    dip1_count = dip_1.count()
+
+    dip_2 = Data.objects.filter(type_data = '3')
+    dip2_count = dip_2.count()
+
+    dip_3 = Data.objects.filter(type_data = '4')
+    dip3_count = dip_3.count()
+
+    subQry = Subquery(Data.objects.filter(dinas_id = OuterRef('id')).values('dinas_id').annotate(jml=Count('id')).values('jml'))
+    opd_count = Dinas.objects.all().annotate(jumlah=subQry)
+
+    p = Paginator(show, 10)
+
+    page_num = request.GET.get('page',1)
+
+    try:
+        show = p.page(page_num)
+    except EmptyPage:
+        show = p.page(1)
+
+    context = {
+        'show':show,
+        'dip_count':dip_count,
+        'dip3_count':dip3_count,
+        'dip2_count':dip2_count,
+        'dip1_count':dip1_count,
+        'opd_count':opd_count,
+    }
+    return render(request, 'ppid/structure.html', context)
 
 def tupoksi(request):
-    return render(request, 'ppid/tupoksi.html')
+    show = Data.objects.filter(title__icontains='tupoksi')
+    dip = Data.objects.all()
+    dip_count = dip.count()
+
+    dip_1 = Data.objects.filter(type_data = '2')
+    dip1_count = dip_1.count()
+
+    dip_2 = Data.objects.filter(type_data = '3')
+    dip2_count = dip_2.count()
+
+    dip_3 = Data.objects.filter(type_data = '4')
+    dip3_count = dip_3.count()
+
+    subQry = Subquery(Data.objects.filter(dinas_id = OuterRef('id')).values('dinas_id').annotate(jml=Count('id')).values('jml'))
+    opd_count = Dinas.objects.all().annotate(jumlah=subQry)
+
+    p = Paginator(show, 10)
+
+    page_num = request.GET.get('page',1)
+
+    try:
+        show = p.page(page_num)
+    except EmptyPage:
+        show = p.page(1)
+
+    context = {
+        'show':show,
+        'dip_count':dip_count,
+        'dip3_count':dip3_count,
+        'dip2_count':dip2_count,
+        'dip1_count':dip1_count,
+        'opd_count':opd_count,
+    }
+    return render(request, 'ppid/tupoksi.html',context)
 
 def profile(request):
-    return render(request, 'ppid/profile.html')
+    show = Data.objects.filter(title__icontains='profil')
+    dip = Data.objects.all()
+    dip_count = dip.count()
+
+    dip_1 = Data.objects.filter(type_data = '2')
+    dip1_count = dip_1.count()
+
+    dip_2 = Data.objects.filter(type_data = '3')
+    dip2_count = dip_2.count()
+
+    dip_3 = Data.objects.filter(type_data = '4')
+    dip3_count = dip_3.count()
+
+    subQry = Subquery(Data.objects.filter(dinas_id = OuterRef('id')).values('dinas_id').annotate(jml=Count('id')).values('jml'))
+    opd_count = Dinas.objects.all().annotate(jumlah=subQry)
+
+    p = Paginator(show, 10)
+
+    page_num = request.GET.get('page',1)
+
+    try:
+        show = p.page(page_num)
+    except EmptyPage:
+        show = p.page(1)
+
+    context = {
+        'show':show,
+        'dip_count':dip_count,
+        'dip3_count':dip3_count,
+        'dip2_count':dip2_count,
+        'dip1_count':dip1_count,
+        'opd_count':opd_count,
+    }
+    return render(request, 'ppid/profile.html', context)
 
 def opd(request):
-    return render(request, 'ppid/opd.html')
+    show = Data.objects.filter(title__icontains='profil')
+    dip = Data.objects.all()
+    dip_count = dip.count()
+
+    dip_1 = Data.objects.filter(type_data = '2')
+    dip1_count = dip_1.count()
+
+    dip_2 = Data.objects.filter(type_data = '3')
+    dip2_count = dip_2.count()
+
+    dip_3 = Data.objects.filter(type_data = '4')
+    dip3_count = dip_3.count()
+
+    subQry = Subquery(Data.objects.filter(dinas_id = OuterRef('id')).values('dinas_id').annotate(jml=Count('id')).values('jml'))
+    opd_count = Dinas.objects.all().annotate(jumlah=subQry)
+
+    p = Paginator(show, 10)
+
+    page_num = request.GET.get('page',1)
+
+    try:
+        show = p.page(page_num)
+    except EmptyPage:
+        show = p.page(1)
+
+    context = {
+        'show':show,
+        'dip_count':dip_count,
+        'dip3_count':dip3_count,
+        'dip2_count':dip2_count,
+        'dip1_count':dip1_count,
+        'opd_count':opd_count,
+    }
+    return render(request, 'ppid/opd.html', context)
 
 def profileppid(request):
-    return render(request,'ppid/profile-ppid.html') 
+    dip = Data.objects.all()
+    dip_count = dip.count()
+
+    dip_1 = Data.objects.filter(type_data = '2')
+    dip1_count = dip_1.count()
+
+    dip_2 = Data.objects.filter(type_data = '3')
+    dip2_count = dip_2.count()
+
+    dip_3 = Data.objects.filter(type_data = '4')
+    dip3_count = dip_3.count()
+
+    subQry = Subquery(Data.objects.filter(dinas_id = OuterRef('id')).values('dinas_id').annotate(jml=Count('id')).values('jml'))
+    opd_count = Dinas.objects.all().annotate(jumlah=subQry)
+
+    context = {
+        'dip_count':dip_count,
+        'dip3_count':dip3_count,
+        'dip2_count':dip2_count,
+        'dip1_count':dip1_count,
+        'opd_count':opd_count,
+    }
+    return render(request,'ppid/profile-ppid.html', context) 
 
 def visimisippid(request):
     return render(request, 'ppid/visimisi-ppid.html')
