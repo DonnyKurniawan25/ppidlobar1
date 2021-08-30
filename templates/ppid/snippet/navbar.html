@@ -83,11 +83,11 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Akses Informasi<b class="caret"></b></a>
                 <!-- Dropdown Menu -->
                 <ul class="dropdown-menu">
-                    <li><a href="Tatacara">Tata Cara Permohonan</a></li>
+                    <li><a href="{% url 'rulespermohonan' %}">Tata Cara Permohonan</a></li>
                     <li><a href="mekanisme">Mekanisme & Standar Pelayanan</a></li>
-                    <li><a href="standarharga">Standar Harga Perolehan informasi Publik</a></li>
-                    <li><a href="permintaandata">Permintaan Informasi</a></li>
-                    <li><a href="Formulir">Formulir Permohonan Informasi</a></li>
+                    <li><a href="{% url 'standarharga' %}">Standar Harga Perolehan informasi Publik</a></li>
+                    <li><a href="{% url 'permintaandata' %}">Permintaan Informasi</a></li>
+                    <li><a href="{% url 'formregister' %}">Formulir Permohonan Informasi</a></li>
                     <li class="divider"></li>
                     <li><a href="tata_cara_sengketa">Tata Cara Sengketa </a></li>							
                     <li><a href="Penyelesaian">Penyelesaian Sengketa </a></li>							

@@ -5,6 +5,7 @@ from .models import *
 
 admin.site.register(Dinas)
 admin.site.register(Type_data)
-admin.site.register(Type_article)
 admin.site.register(Data)
 admin.site.register(IpModel)
+admin.site.register(Form_information)
+admin.site.register(Type_pemohon)

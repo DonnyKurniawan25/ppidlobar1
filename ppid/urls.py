@@ -7,7 +7,7 @@ urlpatterns = [
     path('visimisi/', views.visimisi, name="visimisi"),
     path('structure/', views.structure, name="structure"),
     path('tupoksi/', views.tupoksi, name="tupoksi"),
-    path('profile/', views.profile, name="profile"),
+    path('profile/', views.profile, name="profilepimpinan"),
     path('opd/', views.opd, name="opd"),
     
     path('profile-ppid/', views.profileppid, name="profileppid"),
@@ -34,6 +34,12 @@ urlpatterns = [
     path('berkala/', views.berkala, name="berkala"),
     path('sertamerta/', views.sertamerta, name="sertamerta"),
     path('setiapsaat/', views.setiapsaat, name="setiapsaat"),
+    
+    path('rulespermohonan/', views.rulespermohonan, name="rulespermohonan"),
+    path('standarharga/', views.standarharga, name="standarharga"),
+    path('permintaandata/', views.permintaandata, name="permintaandata"),
+    
+    path('formregister/', views.form_register, name="formregister"),
     
     # path('error/', views.error_404_view, name="error"),
     

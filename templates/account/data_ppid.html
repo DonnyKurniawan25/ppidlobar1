@@ -1,10 +1,11 @@
 {% extends "account/base.html" %}
 {% load static %}
 {% block content %}
+
 <header>
 		<h3 class="tabs_involved">DATA dan informasi </h3>
 		<ul class="tabs">
-   			<li><a href="#tab1">DIP</a></li>
+   			<li><a href="{% url 'create'%}">DIP</a></li>
 		</ul>
 		</header>
 
@@ -12,7 +13,7 @@
 			<div id="tab1" class="tab_content">
         	{% comment %} <a  href="{% url 'create'%}" >Tambah DIP</a> {% endcomment %}
 		</div>
-		<table class='tablesorter'>            
+		<table class='tablesorter' id="dtb">            
 			<thead> 
 				<tr> 
    					<th>Kode DIP</th> 
@@ -22,32 +23,27 @@
     				<th>Actions</th> 
 				</tr> 
 			</thead> 
-            {% for datas in data %}
             <tbody>
-            <td class='left'  width='70'>{{ datas.code}}</td>
-            <td class='left'>{{ datas.title }}</td>		
-            <td class='left'>{{ datas.dinas }}</td>		 
-            <td class='left'>{{ datas.date_a}}</td>
-            <td class='center' width='50'>
-			<button><a href="{% url 'update' datas.id %}"><img src="{% static 'admin/images/icn_edit.png' %}" title='edit' /></a></button><hr>
-            <form method="POST" action="{% url 'delete' datas.id %}">
-				{% csrf_token %}
-				<button type="submit" onclick="return confirm('Apakah Data Mau DiHapus?')"><a href=""><img src="{% static 'admin/images/icn_alert_error.png' %}" border='0' title='hapus' ></a></button>
-			</form>
-			{% endfor %}
+            {% for datas in data %}
+				<tr>
+					<td class='left'  width='70'>{{ datas.code}}</td>
+					<td class='left'>{{ datas.title }}</td>		
+					<td class='left'>{{ datas.dinas }}</td>		 
+					<td class='left'>{{ datas.date_a}}</td>
+					<td class='center' width='50'>
+					<button><a href="{% url 'update' datas.id %}"><img src="{% static 'admin/images/icn_edit.png' %}" title='edit' /></a></button><hr>
+					<form method="POST" action="{% url 'delete' datas.id %}">
+						{% csrf_token %}
+						<button type="submit" onclick="return confirm('Apakah Data Mau DiHapus?')"><a href=""><img src="{% static 'admin/images/icn_alert_error.png' %}" border='0' title='hapus' ></a></button>
+					</form>
 
-            </td></tr>
-			</table>
+					</td>
+				</tr>
+			{% endfor %}
+			<tbody>
+		</table>
 			<div class='tab_content' align='center'>
 			<span class="disabled"> 
-			
-            {% if data.has_previous %}
-			<a href="{% url 'datappid' %}?page={{data.previous_page_number}}">&lt;&lt; Previous</a>	            
-            {% endif %}
-			<span class="current"> {{ data.number }} of {{ data.paginator.num_pages }}</span>
-			{% if data.has_next %}
-			<a href="{% url 'datappid' %}?page={{ data.next_page_number }}">Next &gt;&gt;</a>	            
-			{% endif %}
 <hr>
 </div>           
   
@@ -55,5 +51,7 @@
 			</div><!-- end of #tab1 --><!-- end of #tab2 -->
 			
 		</div><!-- end of .tab_container -->
+
+
 
 {% endblock %}

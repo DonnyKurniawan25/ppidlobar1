@@ -97,15 +97,6 @@ def data_ppid(request):
     dip_3 = models.Data.objects.filter(type_data = '4', user=request.user.id)
     dip3_count = dip_3.count()
 
-    p = Paginator(data, 5)
-
-    page_num = request.GET.get('page',1)
-
-    try:
-        data = p.page(page_num)
-    except EmptyPage:
-        data = p.page(1)
-
     context = {
         'data':data,
         'dip_count':dip_count,

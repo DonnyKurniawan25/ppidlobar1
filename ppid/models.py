@@ -20,11 +20,6 @@ class Type_data(models.Model):
     def __str__(self):
         return self.type
 
-class Type_article(models.Model):
-    title = models.CharField(max_length=225)
-    def __str__(self):
-        return self.title
-
 class IpModel(models.Model):
     ip =models.CharField(max_length=225)
 
@@ -65,6 +60,29 @@ class Data(models.Model):
 
     def total_downloads(self):
         return self.download.count()
+
+class Type_pemohon(models.Model):
+    type_pemohon = models.CharField(max_length=225)
+    
+    def __str__(self):
+        return self.type_pemohon
+
+class Form_information(models.Model):
+    name = models.CharField(max_length=255)
+    kategory_pemohon = models.ForeignKey(Type_pemohon, on_delete=models.CASCADE)
+    address = models.TextField()
+    telp = models.CharField(max_length=25)
+    email = models.CharField(max_length=50)
+    ktp = models.FileField(max_length=255)
+    purpose = models.TextField()
+    detail = models.TextField()
+    date = models.DateTimeField(auto_now_add=True)
+    status = models.CharField(max_length=125)
+    Information = models.TextField()
+
+
+
+
 
 
 

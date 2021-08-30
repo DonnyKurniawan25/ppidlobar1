@@ -9,14 +9,14 @@
             <ul class="list-dotted">
             <br>
             {% for alamat in show%}
-            <h4 class="media-heading"><a class="text-weight-strong" href="detail_vw.php?id=3871&act=ppid&dns= 12&jns= 2">{{alamat.title}}</a></h4>
+            <h4 class="media-heading"><a class="text-weight-strong" href="{% url 'DIP'  pk=alamat.id %}?post-id={{ alamat.id }}">{{alamat.title}}</a></h4>
             <p><small>OPD : {{alamat.dinas}}</small><p><hr> 
             {% endfor %}
              <ul class="pagination pagination-lg">
             {% if show.has_previous %}
                 <li><a href="{% url 'addreas' %}?page={{show.previous_page_number}}">&lt;&lt; Previous </a></li>
             {% endif %}
-            <li> <a href='/p_mekanisme.php?act=show&page=316'>{{show.number}} Of {{show.paginator.num_pages}}</a></li>
+            <li> <a href=''>{{show.number}} Of {{show.paginator.num_pages}}</a></li>
             {% if show.has_next  %}
                 <li><a href="{% url 'addreas' %}?page={{show.next_page_number}}">Next &gt;&gt;</a></li>
             {% else %}

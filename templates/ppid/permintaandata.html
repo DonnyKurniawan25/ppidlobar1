@@ -1,0 +1,44 @@
+{% extends "ppid/base-content.html" %}
+{% load static %}
+{% block content %}
+
+<div class="jumbotron alert alert-danger">  
+<h4>Permintaan Data</h4>
+<p class="text-fancy"><img src="{% static 'images/logo.png' %}">Sebelum melakukan permintaan DIP silakan lihat semua daftar informasi publik kami yang sudah di upload
+<a href="{% url 'DIP' %}">disini</a> 
+atau silakan melakukan pencarian DIP pada kotak pencarian diatas. Jika informasi tidak tersedia silakan anda mengajukan permohonan informasi <a href="Formulir">disini</a></p>
+
+<p class="alert-danger"><small>Untuk permintaan secara langsung ke Kantor PPID silakan mengisi formulir yang dapat di <a href="media/formpermintaandata.pdf"> download disini</a></small></p>
+<p class="alert-danger"><img src="{% static 'images/alurpermohonan.jpeg' %}"></p>
+<h2>Lacak Permintaan Data</h2>
+<div class="input-group stylish-input-group">
+ <h4 class="block-title">Permintaan Data Terbaru</h4>
+    <small>
+        <table class="table table-bordered" id="dtb">
+        <thead>
+            <tr>
+            <th>NO </th>
+            <th>Nama</th>
+            <th>Tujuan Permintaan Data</th>
+            <th>Rincian</th>
+            <th>Tanggal</th>
+            <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowcol-md-="2">1</td>
+                <td>Restu Kurniawan</td>
+                <td>Penyusunan proposal KTI</td>
+                <td>Data penyakit pasien puskesmas labuapi tahun 2019-2020</td>
+                <td>27 Juli 2021</td>
+                <td>Belum Diproses</td>
+            </tr>
+        </tbody>
+        </table>
+    </small>
+</div>
+
+</div>
+
+{% endblock %}
