@@ -12,14 +12,14 @@
                 <!-- Dropdown Menu -->
                 <ul class="dropdown-menu">
                     <li><a href="#"></a></li>
-                    <li><a href="/alamat">Alamat</a></li>
-                    <li><a href="/visimisi">Visi Misi</a></li>
-                    <li><a href="/structure">Struktur Organisasi</a></li>
-                    <li><a href="/tupoksi">Tupoksi</a></li>
-                    <li><a href="/profile">Profil Pimpinan</a></li>
+                    <li><a href="{% url 'addreas' %}">Alamat</a></li>
+                    <li><a href="{% url 'visimisi' %}">Visi Misi</a></li>
+                    <li><a href="{% url 'structure' %}">Struktur Organisasi</a></li>
+                    <li><a href="{% url 'tupoksi' %}">Tupoksi</a></li>
+                    <li><a href="{% url 'profilepimpinan' %}">Profil Pimpinan</a></li>
                     <li class="divider"></li>
                     <li><a href="http://agenda.lombokbaratkab.go.id/" target="_blank">AGENDA</a></li>
-                    <li class="dropdown-footer"><a href="/opd">OPD Lombok Barat</a></li>
+                    <li class="dropdown-footer"><a href="{% url 'opd' %}">OPD Lombok Barat</a></li>
                 </ul>
             </li>
 
@@ -27,11 +27,11 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Profil PPID<b class="caret"></b></a>
                 <!-- Dropdown Menu -->
                 <ul class="dropdown-menu">
-                    <li><a href="/profile-ppid">Profil Singkat PPID</a></li>
-                    <li><a href="/visimisi-ppid">Visi Misi PPID</a></li>
-                    <li><a href="/structure-ppid">Struktur Organisasi PPID</a></li>
-                    <li><a href="/authority-ppid">Tugas Fungsi PPID</a></li>
-                    <li><a href="/notice-ppid">Maklumat Pelayanan</a></li>
+                    <li><a href="{% url 'profileppid' %}">Profil Singkat PPID</a></li>
+                    <li><a href="{% url 'visimisippid' %}">Visi Misi PPID</a></li>
+                    <li><a href="{% url 'structureppid' %}">Struktur Organisasi PPID</a></li>
+                    <li><a href="{% url 'authorityppid' %}">Tugas Fungsi PPID</a></li>
+                    <li><a href="{% url 'noticeppid' %}">Maklumat Pelayanan</a></li>
                 </ul>
             </li>
 
@@ -43,8 +43,8 @@
                     <li><a href="Kegiatan">Kegiatan</a></li>
                     <li><a href="Agenda">Agenda</a></li>
                     <li><a href="Hakmasyarakat">Hak Masyarakat</a></li>
-                    <li><a href="Lapakuntabilitaskinerja">Lap.Akuntabilitas Kinerja</a></li>
-                    <li class="dropdown-footer"><a href="opdlobar"> OPD Lombok Barat</a></li>
+                    <li><a href="Lapakuntabilitaskinerja">Laporan Akuntabilitas Kinerja</a></li>
+                    <li class="dropdown-footer"><a href="{% url 'opd' %}"> OPD Lombok Barat</a></li>
                 </ul>
             </li>
 
@@ -87,18 +87,18 @@
                     <li><a href="mekanisme">Mekanisme & Standar Pelayanan</a></li>
                     <li><a href="{% url 'standarharga' %}">Standar Harga Perolehan informasi Publik</a></li>
                     <li><a href="{% url 'permintaandata' %}">Permintaan Informasi</a></li>
-                    <li><a href="{% url 'formregister' %}">Formulir Permohonan Informasi</a></li>
+                    <li><a href="{% url 'formrequest' %}">Formulir Permohonan Informasi</a></li>
                     <li class="divider"></li>
-                    <li><a href="tata_cara_sengketa">Tata Cara Sengketa </a></li>							
-                    <li><a href="Penyelesaian">Penyelesaian Sengketa </a></li>							
+                    <li><a href="{% url 'rulessengketa' %}">Tata Cara Sengketa </a></li>							
+                    <li><a href="{% url 'pengajuankeberatan' %}">Penyelesaian Sengketa </a></li>							
                     <li class="divider"></li>
                     <li><a href="Keberatan">Pengajuan Keberatan</a></li>
                     <li><a href="SengketaForm">Formulir Keberatan</a></li>
                     <li class="divider"></li>
-                    <li><a href="Laporan">Laporan</a></li>
-                    <li><a href="sop">SOP</a></li>
-                    <li><a href="regulasi">Regulasi KIP</a></li>
-                    <li class="dropdown-footer"><a href="opdlobar">OPD Lombok Barat</a></li>
+                    <li><a href="{% url 'laporan' %}">Laporan</a></li>
+                    <li><a href="{% url 'sop' %}">SOP</a></li>
+                    <li><a href="{% url 'regulasi' %}">Regulasi KIP</a></li>
+                    <li class="dropdown-footer"><a href="{% url 'opd' %}">OPD Lombok Barat</a></li>
                 </ul>
             </li>
             
@@ -106,7 +106,7 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Regulasi<b class="caret"></b></a>
                 <!-- Dropdown Menu -->
                 <ul class="dropdown-menu">
-                    <li><a href="regulasi">Peraturan</a></li>
+                    <li><a href="{% url 'regulasi' %}">Peraturan</a></li>
                     <li><a href="draf_regulasi">Rancangan</a></li>							
                 </ul>
             </li>

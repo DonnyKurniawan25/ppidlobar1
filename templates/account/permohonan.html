@@ -1,0 +1,59 @@
+{% extends "account/base_permohonan.html" %}
+{% load static %}
+{% block content %}
+
+<header><h3 class="tabs_involved">DATA PERMOHONAN</h3></header>
+		<div class="tab_container">
+			<div id="tab1" class="tab_content">
+        	{% comment %} <a  href="{% url 'create'%}" >Tambah DIP</a> {% endcomment %}
+		</div>
+		<table class='tablesorter' id="dtb">            
+			<thead> 
+				<tr> 
+   					<th>Nomor</th> 
+    				<th>Nama</th> 
+    				<th>Tujuan Permintaan</th> 
+    				<th>Rincian</th> 
+    				<th>Tanggal</th> 
+    				<th>Kategori Pemohon</th> 
+    				<th>Keinginan</th> 
+    				<th>Status</th> 
+    				<th>Proses</th> 
+				</tr> 
+			</thead> 
+            <tbody>
+            {% for datas in data %}
+				<tr>
+					<td class='left'  width='70'>{{ datas.id}}</td>
+					<td class='left'>{{ datas.name }}</td>		
+					<td class='left'>{{ datas.purpose }}</td>		 
+					<td class='left'>{{ datas.detail }}</td>		 
+					<td class='left'>{{ datas.date}}</td>
+					<td class='left'>{{ datas.kategory_pemohon}}</td>
+					<td class='left'>{{ datas.action}}</td>
+					<td class='left'>{{ datas.status}}</td>
+					<td class='center' width='50'>
+					<button><a href="{% url 'prosespermohonan' datas.id %}"><img src="{% static 'admin/images/icn_search.png' %}" title='Proses Data' /></a></button><hr>
+					<form method="POST" action="{% url 'deletepermohonan' datas.id %}">
+						{% csrf_token %}
+						<button type="submit" onclick="return confirm('Apakah Data Mau DiHapus?')"><a href=""><img src="{% static 'admin/images/icn_alert_error.png' %}" border='0' title='hapus' ></a></button>
+					</form>
+
+					</td>
+				</tr>
+			{% endfor %}
+			<tbody>
+		</table>
+			<div class='tab_content' align='center'>
+			<span class="disabled"> 
+<hr>
+</div>           
+  
+			
+			</div><!-- end of #tab1 --><!-- end of #tab2 -->
+			
+		</div><!-- end of .tab_container -->
+
+
+
+{% endblock %}

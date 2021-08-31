@@ -1,8 +1,9 @@
 from django.http import request
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.template import context
 from django.template.context import Context
 from .models import *
+from .forms import *
 from django.views.generic import ListView, DetailView
 from django.http import HttpResponseRedirect
 
@@ -421,22 +422,154 @@ def profileppid(request):
     return render(request,'ppid/profile-ppid.html', context) 
 
 def visimisippid(request):
-    return render(request, 'ppid/visimisi-ppid.html')
+    dip = Data.objects.all()
+    dip_count = dip.count()
+
+    dip_1 = Data.objects.filter(type_data = '2')
+    dip1_count = dip_1.count()
+
+    dip_2 = Data.objects.filter(type_data = '3')
+    dip2_count = dip_2.count()
+
+    dip_3 = Data.objects.filter(type_data = '4')
+    dip3_count = dip_3.count()
+
+    subQry = Subquery(Data.objects.filter(dinas_id = OuterRef('id')).values('dinas_id').annotate(jml=Count('id')).values('jml'))
+    opd_count = Dinas.objects.all().annotate(jumlah=subQry)
+
+    context = {
+        'dip_count':dip_count,
+        'dip3_count':dip3_count,
+        'dip2_count':dip2_count,
+        'dip1_count':dip1_count,
+        'opd_count':opd_count,
+    }
+    return render(request, 'ppid/visimisi-ppid.html', context)
 
 def structureppid(request):
-    return render(request, 'ppid/structure-ppid.html')
+    dip = Data.objects.all()
+    dip_count = dip.count()
+
+    dip_1 = Data.objects.filter(type_data = '2')
+    dip1_count = dip_1.count()
+
+    dip_2 = Data.objects.filter(type_data = '3')
+    dip2_count = dip_2.count()
+
+    dip_3 = Data.objects.filter(type_data = '4')
+    dip3_count = dip_3.count()
+
+    subQry = Subquery(Data.objects.filter(dinas_id = OuterRef('id')).values('dinas_id').annotate(jml=Count('id')).values('jml'))
+    opd_count = Dinas.objects.all().annotate(jumlah=subQry)
+
+    context = {
+        'dip_count':dip_count,
+        'dip3_count':dip3_count,
+        'dip2_count':dip2_count,
+        'dip1_count':dip1_count,
+        'opd_count':opd_count,
+    }
+    return render(request, 'ppid/structure-ppid.html', context)
 
 def authorityppid(request):
-    return render(request, 'ppid/authority-ppid.html')
+    dip = Data.objects.all()
+    dip_count = dip.count()
+
+    dip_1 = Data.objects.filter(type_data = '2')
+    dip1_count = dip_1.count()
+
+    dip_2 = Data.objects.filter(type_data = '3')
+    dip2_count = dip_2.count()
+
+    dip_3 = Data.objects.filter(type_data = '4')
+    dip3_count = dip_3.count()
+
+    subQry = Subquery(Data.objects.filter(dinas_id = OuterRef('id')).values('dinas_id').annotate(jml=Count('id')).values('jml'))
+    opd_count = Dinas.objects.all().annotate(jumlah=subQry)
+
+    context = {
+        'dip_count':dip_count,
+        'dip3_count':dip3_count,
+        'dip2_count':dip2_count,
+        'dip1_count':dip1_count,
+        'opd_count':opd_count,
+    }
+    return render(request, 'ppid/authority-ppid.html',context)
 
 def noticeppid(request):
-    return render(request, 'ppid/notice-ppid.html')
+    dip = Data.objects.all()
+    dip_count = dip.count()
+
+    dip_1 = Data.objects.filter(type_data = '2')
+    dip1_count = dip_1.count()
+
+    dip_2 = Data.objects.filter(type_data = '3')
+    dip2_count = dip_2.count()
+
+    dip_3 = Data.objects.filter(type_data = '4')
+    dip3_count = dip_3.count()
+
+    subQry = Subquery(Data.objects.filter(dinas_id = OuterRef('id')).values('dinas_id').annotate(jml=Count('id')).values('jml'))
+    opd_count = Dinas.objects.all().annotate(jumlah=subQry)
+
+    context = {
+        'dip_count':dip_count,
+        'dip3_count':dip3_count,
+        'dip2_count':dip2_count,
+        'dip1_count':dip1_count,
+        'opd_count':opd_count,
+    }
+    return render(request, 'ppid/notice-ppid.html', context)
 
 def complaint(request):
-    return render(request, 'ppid/complaint.html')
+    dip = Data.objects.all()
+    dip_count = dip.count()
+
+    dip_1 = Data.objects.filter(type_data = '2')
+    dip1_count = dip_1.count()
+
+    dip_2 = Data.objects.filter(type_data = '3')
+    dip2_count = dip_2.count()
+
+    dip_3 = Data.objects.filter(type_data = '4')
+    dip3_count = dip_3.count()
+
+    subQry = Subquery(Data.objects.filter(dinas_id = OuterRef('id')).values('dinas_id').annotate(jml=Count('id')).values('jml'))
+    opd_count = Dinas.objects.all().annotate(jumlah=subQry)
+
+    context = {
+        'dip_count':dip_count,
+        'dip3_count':dip3_count,
+        'dip2_count':dip2_count,
+        'dip1_count':dip1_count,
+        'opd_count':opd_count,
+    }
+    return render(request, 'ppid/complaint.html', context)
 
 def contact(request):
-    return render(request, 'ppid/contact.html')
+    dip = Data.objects.all()
+    dip_count = dip.count()
+
+    dip_1 = Data.objects.filter(type_data = '2')
+    dip1_count = dip_1.count()
+
+    dip_2 = Data.objects.filter(type_data = '3')
+    dip2_count = dip_2.count()
+
+    dip_3 = Data.objects.filter(type_data = '4')
+    dip3_count = dip_3.count()
+
+    subQry = Subquery(Data.objects.filter(dinas_id = OuterRef('id')).values('dinas_id').annotate(jml=Count('id')).values('jml'))
+    opd_count = Dinas.objects.all().annotate(jumlah=subQry)
+
+    context = {
+        'dip_count':dip_count,
+        'dip3_count':dip3_count,
+        'dip2_count':dip2_count,
+        'dip1_count':dip1_count,
+        'opd_count':opd_count,
+    }
+    return render(request, 'ppid/contact.html', context)
 
 def DIP(request):
     
@@ -724,7 +857,7 @@ def permintaandata(request):
     }
     return render(request, 'ppid/permintaandata.html', context)
 
-def form_register(request):
+def form_request(request):
     show = Form_information.objects.all()
 
     dip = Data.objects.all()
@@ -742,6 +875,75 @@ def form_register(request):
     subQry = Subquery(Data.objects.filter(dinas_id = OuterRef('id')).values('dinas_id').annotate(jml=Count('id')).values('jml'))
     opd_count = Dinas.objects.all().annotate(jumlah=subQry)
 
+    form = RequestForm()
+    if request.method == 'POST':
+        form = RequestForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('formrequest')
+
+    context = {
+        'form':form,
+        'show':show,
+        'dip_count':dip_count,
+        'dip3_count':dip3_count,
+        'dip2_count':dip2_count,
+        'dip1_count':dip1_count,
+        'opd_count':opd_count,
+    }
+    return render(request, 'ppid/form_request.html', context)
+    
+def rulessengketa(request):
+    dip = Data.objects.all()
+    dip_count = dip.count()
+
+    dip_1 = Data.objects.filter(type_data = '2')
+    dip1_count = dip_1.count()
+
+    dip_2 = Data.objects.filter(type_data = '3')
+    dip2_count = dip_2.count()
+
+    dip_3 = Data.objects.filter(type_data = '4')
+    dip3_count = dip_3.count()
+
+    subQry = Subquery(Data.objects.filter(dinas_id = OuterRef('id')).values('dinas_id').annotate(jml=Count('id')).values('jml'))
+    opd_count = Dinas.objects.all().annotate(jumlah=subQry)
+
+    context = {
+        'dip_count':dip_count,
+        'dip3_count':dip3_count,
+        'dip2_count':dip2_count,
+        'dip1_count':dip1_count,
+        'opd_count':opd_count,
+    }
+    return render(request, 'ppid/rulessengketa.html', context)
+
+def pengajuankeberatan(request):
+    show = Data.objects.filter(title__icontains='keberatan')
+    dip = Data.objects.all()
+    dip_count = dip.count()
+
+    dip_1 = Data.objects.filter(type_data = '2')
+    dip1_count = dip_1.count()
+
+    dip_2 = Data.objects.filter(type_data = '3')
+    dip2_count = dip_2.count()
+
+    dip_3 = Data.objects.filter(type_data = '4')
+    dip3_count = dip_3.count()
+
+    subQry = Subquery(Data.objects.filter(dinas_id = OuterRef('id')).values('dinas_id').annotate(jml=Count('id')).values('jml'))
+    opd_count = Dinas.objects.all().annotate(jumlah=subQry)
+
+    p = Paginator(show, 10)
+
+    page_num = request.GET.get('page',1)
+
+    try:
+        show = p.page(page_num)
+    except EmptyPage:
+        show = p.page(1)
+
     context = {
         'show':show,
         'dip_count':dip_count,
@@ -750,5 +952,115 @@ def form_register(request):
         'dip1_count':dip1_count,
         'opd_count':opd_count,
     }
-    return render(request, 'ppid/form_register.html', context)
+    return render(request, 'ppid/pengajuankeberatan.html', context)
+
+def laporan(request):
+    show = Data.objects.filter(title__icontains='laporan') 
+    dip = Data.objects.all()
+    dip_count = dip.count()
+
+    dip_1 = Data.objects.filter(type_data = '2')
+    dip1_count = dip_1.count()
+
+    dip_2 = Data.objects.filter(type_data = '3')
+    dip2_count = dip_2.count()
+
+    dip_3 = Data.objects.filter(type_data = '4')
+    dip3_count = dip_3.count()
+
+    subQry = Subquery(Data.objects.filter(dinas_id = OuterRef('id')).values('dinas_id').annotate(jml=Count('id')).values('jml'))
+    opd_count = Dinas.objects.all().annotate(jumlah=subQry)
+
+    p = Paginator(show, 10)
+
+    page_num = request.GET.get('page',1)
+
+    try:
+        show = p.page(page_num)
+    except EmptyPage:
+        show = p.page(1)
+
+    context = {
+        'show':show,
+        'dip_count':dip_count,
+        'dip3_count':dip3_count,
+        'dip2_count':dip2_count,
+        'dip1_count':dip1_count,
+        'opd_count':opd_count,
+    }
+   
+    return render(request, 'ppid/laporan.html', context)
+
+def sop(request):
+    show = Data.objects.filter(title__icontains='sop') 
     
+    dip = Data.objects.all()
+    dip_count = dip.count()
+
+    dip_1 = Data.objects.filter(type_data = '2')
+    dip1_count = dip_1.count()
+
+    dip_2 = Data.objects.filter(type_data = '3')
+    dip2_count = dip_2.count()
+
+    dip_3 = Data.objects.filter(type_data = '4')
+    dip3_count = dip_3.count()
+
+    subQry = Subquery(Data.objects.filter(dinas_id = OuterRef('id')).values('dinas_id').annotate(jml=Count('id')).values('jml'))
+    opd_count = Dinas.objects.all().annotate(jumlah=subQry)
+
+    p = Paginator(show, 10)
+
+    page_num = request.GET.get('page',1)
+
+    try:
+        show = p.page(page_num)
+    except EmptyPage:
+        show = p.page(1)
+
+    context = {
+        'show':show,
+        'dip_count':dip_count,
+        'dip3_count':dip3_count,
+        'dip2_count':dip2_count,
+        'dip1_count':dip1_count,
+        'opd_count':opd_count,
+    }
+    return render(request, 'ppid/sop.html', context)
+
+def regulasi(request):
+    show = Data.objects.filter(title__icontains='undang') 
+    
+    dip = Data.objects.all()
+    dip_count = dip.count()
+
+    dip_1 = Data.objects.filter(type_data = '2')
+    dip1_count = dip_1.count()
+
+    dip_2 = Data.objects.filter(type_data = '3')
+    dip2_count = dip_2.count()
+
+    dip_3 = Data.objects.filter(type_data = '4')
+    dip3_count = dip_3.count()
+
+    subQry = Subquery(Data.objects.filter(dinas_id = OuterRef('id')).values('dinas_id').annotate(jml=Count('id')).values('jml'))
+    opd_count = Dinas.objects.all().annotate(jumlah=subQry)
+
+    p = Paginator(show, 10)
+
+    page_num = request.GET.get('page',1)
+
+    try:
+        show = p.page(page_num)
+    except EmptyPage:
+        show = p.page(1)
+
+    context = {
+        'show':show,
+        'dip_count':dip_count,
+        'dip3_count':dip3_count,
+        'dip2_count':dip2_count,
+        'dip1_count':dip1_count,
+        'opd_count':opd_count,
+    }
+    return render(request, 'ppid/regulasi.html', context)

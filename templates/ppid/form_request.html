@@ -6,62 +6,63 @@
   <h3 class="block-title">Formulir Permintaan Data</h3>
   <h1>PPID Lombok Barat</h1><br>
 	<p>
-    Download <a href="images/services/tatacarapermohonan.pdf" target="_blank">Tatacara Permohonan Informasi</a>
+    Download <a href="{% static 'file/tatacarapermohonan.pdf' %}" target="_blank">Tatacara Permohonan Informasi</a>
 	</p><br>	
 				
 <!--	<p>DAlam Perbaikan  </p> -->
 
-	<form accept-charset="UTF-8"  action="formdata.php?act=simpan" method="post" enctype="multipart/form-data" name="form1">
+	<form accept-charset="UTF-8"  action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
       <fieldset>
         <div class="form-group">
           <div class="input-group input-group-lg">
             <span class="input-group-addon"><i class="fa fa-fw fa-user"></i></span>
-            <input type="text" name ="nama" required="true" class="form-control" placeholder="Nama Lengkap">
+		        {{form.name}}
           </div>
         </div>
         <div class="form-group">
           <div class="input-group input-group-lg">
-            <span class="input-group-addon" title="Kategori Pemohon"><i class="fa fa-align-justify"></i></span>
-            <select class="form-control" name="kategori" required="" title="Kategori Pemohon">
-              <option>Perorangan</option>
-              <option>Kelompok</option>
-              <option>LSM/NGO</option>
-              <option>Instansi Pemerintah</option>
-              <option>Lembaga Pendidikan</option>
-              <option>Lainnya</option>
-            </select>
+            <span class="input-group-addon" title="Kategori Pemohon"><small>Kategori</small></span>
+            
+		        {{form.kategory_pemohon}}
+          </div>
+        </div>
+         <div class="form-group">
+          <div class="input-group input-group-lg">
+            <span class="input-group-addon" title="Dinas"><small>Dinas</small></span>
+            
+		        {{form.dinas}}
           </div>
         </div>
         <div class="form-group">
           <div class="input-group input-group-lg">
             <span class="input-group-addon"><i class="fa fa-fw fa-map-marker "></i></span>
-            <input type="text" name="alamat" required="true" class="form-control" placeholder="Alamat">
+		        {{form.address}}
           </div>
         </div>
         <div class="form-group">
           <div class="input-group input-group-lg">
             <span class="input-group-addon"><i class="fa fa-fw fa-phone "></i></span>
-            <input type="number" name="telp" required="true" class="form-control" placeholder="No Telp">
+		        {{form.telp}}
           </div>
         </div>
         <div class="form-group">
           <div class="input-group input-group-lg">
             <span class="input-group-addon"><i class="fa fa-fw fa-envelope"></i></span>
-            <input type="email" name="email" required="true" class="form-control" placeholder="Email">
+		        {{form.email}}
           </div>
         </div>
         <div class="form-group">
           <div class="input-group input-group-lg">
             <span class="input-group-btn">
               <button type="button" class="btn btn-default" disabled="disabled" id="fake-file-button-upload">
-                <span class="fa fa-credit-card "></span>
+                <small>Scan KTP</small>
               </button>
             </span>
-            <input type="file" id="files-input-upload" name="ktp" style="display:none" required="true">
-            <input type="text" id="fake-file-input-name" name="ktp" required="true" disabled="disabled" placeholder="Salinan KTP" class="form-control">
+		        {{form.ktp}}
             <span class="input-group-btn">
-              <button id="fake-file-button-browse" type="button" class="btn btn-default">
-                <span class="glyphicon glyphicon-search "></span>
+              <button id="fake-file-button-browse" disabled type="button" class="btn btn-default">
+                 <span class="fa fa-credit-card "></span>
               </button>
             </span>
           </div>
@@ -69,33 +70,26 @@
         <div class="form-group">
           <div class="input-group input-group-lg">
             <span class="input-group-addon"><i class="fa fa-fw fa-question-circle"></i></span>
-              <textarea class="textarea-control" name="tujuan" rows="3" cols="95%" data-rule="required" data-msg="Please write something for us" placeholder="Tujuan Penggunaan Informasi*"></textarea>
+		        {{form.purpose}}
           </div>
         </div>
         <div class="form-group">
           <div class="input-group input-group-lg">
             <span class="input-group-addon"><i class="fa fa-fw fa-pencil-square-o "></i></span>
-              <textarea class="textarea-control" name="rincian" rows="3" cols="95%" data-rule="required" data-msg="Please write something for us" placeholder="Rincian Informasi yang dibutuhkan**"></textarea>
+		        {{form.detail}}
           </div>
         </div>
         <div class="form-group">
-          <div class="radio">
-            <label>
-              <input type="radio" name="aksi" id="optionsRadios1" value="1" checked>
-              Melihat/Mendengar/Membaca/Mencatat
-            </label>
-          </div>
-          <div class="radio">
-            <label>
-              <input type="radio" name="aksi" id="optionsRadios2" value="2">
-              Mendapatkan salinan informasi (Hardcopy/Softcopy)
-            </label>
+          <div class="input-group input-group-lg">
+            <span class="input-group-addon" title="Kategori Pemohon"><small>File</small></span>
+		        {{form.action}}
           </div>
         </div>
+		        {{form.status}}
         <div class="checkbox">
           <div class="g-recaptcha" data-sitekey="6LcprCUUAAAAAOu59Wqkoxzr-ZibvTDueGYFPRvK"></div> 
         </div>
-        <input class="btn btn-lg btn-primary " type="submit" value="Kirim Permintaan Data"> <input type="reset" class="btn btn-lg btn-primary" value="Hapus Text" />
+        <input class="btn btn-lg btn-primary" name="Submit" type="submit" value="Kirim Permintaan Data"> <input type="reset" class="btn btn-lg btn-primary" value="Hapus Text" />
     </fieldset>
   </form>
 </div> 
@@ -109,6 +103,7 @@
       <th>Rincian</th>
       <th>Tanggal</th>
       <th>Status</th>
+      <th>Keterangan</th>
     </tr>
   </thead>
   <tbody>
@@ -120,6 +115,7 @@
       <td>{{ s.detail }}</td>
       <td>{{ s.date }}</td>
       <td>{{ s.status }}</td>
+      <td>{{ s.Information }}</td>
     </tr>
     {% endfor %}
   </tbody>

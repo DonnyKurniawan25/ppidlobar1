@@ -1,0 +1,135 @@
+{% extends "account/base_crud.html" %}
+{% load static %}
+
+{% block content %}
+<header><h3>Informasi Data PPID</h3></header>
+<div class="module_content">
+    <link rel="stylesheet" href="css/tgl3.css" type="text/css" />
+    <script type="text/javascript" src="{% static 'admin/js/tgl.js' %}"></script>
+	<script type="text/javascript" src="{% static 'admin/js/tgl2.js' %}"></script>
+	<script type="text/javascript">
+		$(function() {
+		$( "#kalender" ).datepicker({
+			changeMonth: true,
+			changeYear: true
+		});
+		});
+		$(function() {
+		$( "#kalender2" ).datepicker({
+			changeMonth: true,
+			changeYear: true
+		});
+		});
+	</script> 
+    <link rel="stylesheet" href="{% static 'admin/js/jquery-uiauto.css' %}" />
+    <script src="{% static 'admin/js/jquery-1.8.3auto.js' %}"></script>
+    <script src="{% static 'admin/js/jquery-uiauto.js' %}"></script>
+ 
+        <script>
+    /*autocomplete muncul setelah user mengetikan minimal2 karakter */
+        $(function() {  
+            $( "#anime" ).autocomplete({
+            source: "auto.php",  
+            minLength:2, 
+            });
+        });
+        </script>
+            <script>
+    /*autocomplete muncul setelah user mengetikan minimal2 karakter */
+        $(function() {  
+            $( "#judulauto" ).autocomplete({
+            source: "autojudul.php",  
+            minLength:4, 
+            });
+        });
+        </script>
+    {{ form.errors }}
+    {% comment %} http://127.0.0.1:8000/media/lampiran_II_EdfNrqU.jpg {% endcomment %}
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <fieldset>
+			<label>Nama</label>
+		    {{form.name}}
+        </fieldset>
+        <br>
+        <fieldset>
+            <label>Alamat</label>
+            {{form.address}}
+        </fieldset>
+        <br>
+        <fieldset>
+            <label>Telp</label>
+            {{form.telp}}
+        </fieldset>
+        <br>
+        <fieldset>
+            <label>Email</label>
+            {{ form.email }}
+        </fieldset>
+        <br>
+		<fieldset> <!-- to make two field float next to one another, adjust values accordingly -->
+		 <label>Tujuan</label>
+           {{ form.purpose}}
+        </fieldset>
+        <br>
+        <fieldset>
+            <label>Detail Permohonan</label>
+            {{form.detail}}
+        </fieldset>
+        <fieldset> <!-- to make two field float next to one another, adjust values accordingly -->
+            {{ form.ktp }}</h4>
+		</fieldset>
+        <br>
+        <fieldset>
+			<label>Scan KTP</label>
+		    {% for s in show %}
+            <img src="{{s.ktp.url}}"style="width: 20%"> <hr>
+			<label>Full View</label>    
+            <div class="submit_link">
+                <a href="{{s.ktp.url}}" class="alt_btn" >Full View</a>
+            </div>
+            {% endfor %}
+        </fieldset>
+        <br>
+         <fieldset>
+			<label>Kategori Pemohon</label>
+             {% for s in show %}
+            <input type="text" class="form-control" readonly value="{{ s.kategory_pemohon }}">
+            {% endfor %}
+        </fieldset>
+        <br>
+         <fieldset>
+			<label>Keinginan</label>
+             {% for s in show %}
+                <input type="text" class="form-control" readonly value="{{ s.action }}">
+            {% endfor %}
+        </fieldset>
+        <fieldset> <!-- to make two field float next to one another, adjust values accordingly -->
+            {{ form.kategory_pemohon}} 
+        </fieldset>
+        <fieldset> <!-- to make two field float next to one another, adjust values accordingly -->
+            {{ form.action}} 
+        </fieldset>
+        <br>    
+         <fieldset>
+			<label>Status</label>
+		    {{form.status}}
+        </fieldset>
+        <br>
+        <fieldset>
+            <label>Keterangan</label>
+            {{form.Information}}
+        </fieldset>
+    <div class="clear"></div>
+</div>
+<footer>
+    <div class="submit_link">
+        <input type="submit" value="Update" name="Submit" class="alt_btn">
+        <input type="submit" value="Reset">
+    </div>
+</footer>
+</form>
+
+
+{% endblock%}

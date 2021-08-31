@@ -17,6 +17,12 @@ urlpatterns = [
     path('update-data/<int:pk>', views.update_data, name="update"),
     path('delete-data/<int:pk>', views.delete_data, name="delete"),
 
+    path('permohonan/', views.permohonan_data, name="permohonan"),
+    path('proses-permohonan/<int:pk>', views.proses_permohonan, name="prosespermohonan"),
+    path('delete-permohonan/<int:pk>', views.delete_permohonan, name="deletepermohonan"),
+
+    
+
     #     path('dashboard/', v.index, name='index'),
     # path('', v.indexuser, name='indexuser'),
     # path('register/', vr.register, name='register' ),

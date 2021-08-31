@@ -1,5 +1,6 @@
 from django.db import models
-from django.db.models.fields import CharField
+from django.db.models.deletion import CASCADE
+from django.db.models.fields import CharField, NullBooleanField
 from django.shortcuts import reverse
 from django.contrib.auth.models import User
 from django.utils.text import slugify
@@ -67,18 +68,35 @@ class Type_pemohon(models.Model):
     def __str__(self):
         return self.type_pemohon
 
+class Type_action(models.Model):
+    type_action = models.TextField(null=True) 
+
+    def __str__(self):
+        return self.type_action
+    
 class Form_information(models.Model):
     name = models.CharField(max_length=255)
     kategory_pemohon = models.ForeignKey(Type_pemohon, on_delete=models.CASCADE)
+    action = models.ForeignKey(Type_action, null=True, on_delete=models.CASCADE)
+    dinas = models.ForeignKey(Dinas, null=True, blank=True, on_delete=models.CASCADE)
     address = models.TextField()
     telp = models.CharField(max_length=25)
     email = models.CharField(max_length=50)
-    ktp = models.FileField(max_length=255)
+    ktp = models.FileField(null=True, blank=True)
     purpose = models.TextField()
     detail = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
-    status = models.CharField(max_length=125)
-    Information = models.TextField()
+    status_choice = (
+        ('Belum Diproses','Belum Diproses'),
+        ('Sedang Diproses', 'Sedang Diproses'),
+        ('Dikirimkan', 'Dikirimkan'),
+        ('Ditolak', 'Ditolak'),
+    )
+    status = models.CharField(max_length=125, choices=status_choice)
+    Information = models.TextField(null=True, blank=True)
+
+    def __str__(self):
+        return self.purpose
 
 
 

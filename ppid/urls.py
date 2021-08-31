@@ -39,7 +39,13 @@ urlpatterns = [
     path('standarharga/', views.standarharga, name="standarharga"),
     path('permintaandata/', views.permintaandata, name="permintaandata"),
     
-    path('formregister/', views.form_register, name="formregister"),
+    path('formrequest/', views.form_request, name="formrequest"),
+
+    path('rulessengketa/', views.rulessengketa, name="rulessengketa"),
+    path('pengajuankeberatan/', views.pengajuankeberatan, name="pengajuankeberatan"),
+    path('laporan/', views.laporan, name="laporan"),
+    path('sop/', views.sop, name="sop"),
+    path('regulasi/', views.regulasi, name="regulasi"),
     
     # path('error/', views.error_404_view, name="error"),
     
