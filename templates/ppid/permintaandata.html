@@ -23,17 +23,21 @@ atau silakan melakukan pencarian DIP pada kotak pencarian diatas. Jika informasi
             <th>Rincian</th>
             <th>Tanggal</th>
             <th>Status</th>
+            <th>Keterangan</th>
             </tr>
         </thead>
         <tbody>
+            {% for s in show %}
             <tr>
-                <td rowcol-md-="2">1</td>
-                <td>Restu Kurniawan</td>
-                <td>Penyusunan proposal KTI</td>
-                <td>Data penyakit pasien puskesmas labuapi tahun 2019-2020</td>
-                <td>27 Juli 2021</td>
-                <td>Belum Diproses</td>
+                <td>{{ s.id }}</td>
+                <td>{{ s.name }}</td>
+                <td>{{ s.purpose}}</td>
+                <td>{{ s.detail }}</td>
+                <td>{{ s.date }}</td>
+                <td>{{ s.status }}</td>
+                <td>{{ s.Information }}</td>
             </tr>
+            {% endfor %}
         </tbody>
         </table>
     </small>

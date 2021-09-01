@@ -40,10 +40,10 @@
                 <!-- Dropdown Menu -->
                 <ul class="dropdown-menu">
                     <li><a href="#"> </a></li>
-                    <li><a href="Kegiatan">Kegiatan</a></li>
-                    <li><a href="Agenda">Agenda</a></li>
-                    <li><a href="Hakmasyarakat">Hak Masyarakat</a></li>
-                    <li><a href="Lapakuntabilitaskinerja">Laporan Akuntabilitas Kinerja</a></li>
+                <li><a href="{% url 'kegiatan' %}">Kegiatan</a></li>
+                    <li><a href="{% url 'agenda'%}">Agenda</a></li>
+                    <li><a href="{% url 'hakmasyarakat' %}">Hak Masyarakat</a></li>
+                    <li><a href="{% url 'akuntabilitas' %}">Laporan Akuntabilitas Kinerja</a></li>
                     <li class="dropdown-footer"><a href="{% url 'opd' %}"> OPD Lombok Barat</a></li>
                 </ul>
             </li>
@@ -84,15 +84,15 @@
                 <!-- Dropdown Menu -->
                 <ul class="dropdown-menu">
                     <li><a href="{% url 'rulespermohonan' %}">Tata Cara Permohonan</a></li>
-                    <li><a href="mekanisme">Mekanisme & Standar Pelayanan</a></li>
+                    <li><a href="{% url 'mekanisme' %}">Mekanisme & Standar Pelayanan</a></li>
                     <li><a href="{% url 'standarharga' %}">Standar Harga Perolehan informasi Publik</a></li>
                     <li><a href="{% url 'permintaandata' %}">Permintaan Informasi</a></li>
                     <li><a href="{% url 'formrequest' %}">Formulir Permohonan Informasi</a></li>
                     <li class="divider"></li>
                     <li><a href="{% url 'rulessengketa' %}">Tata Cara Sengketa </a></li>							
-                    <li><a href="{% url 'pengajuankeberatan' %}">Penyelesaian Sengketa </a></li>							
+                    <li><a href="{% url 'disputeresolution' %}">Penyelesaian Sengketa </a></li>							
                     <li class="divider"></li>
-                    <li><a href="Keberatan">Pengajuan Keberatan</a></li>
+                    <li><a href="{% url 'pengajuankeberatan' %}">Pengajuan Keberatan</a></li>
                     <li><a href="SengketaForm">Formulir Keberatan</a></li>
                     <li class="divider"></li>
                     <li><a href="{% url 'laporan' %}">Laporan</a></li>

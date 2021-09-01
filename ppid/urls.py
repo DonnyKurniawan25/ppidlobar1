@@ -23,9 +23,8 @@ urlpatterns = [
     path('DIP-detail/<int:pk>', views.DIPdetail.as_view(), name='DIP'),
     path('download/<int:pk>', views.DIPdownload.as_view(), name='Download'),
 
-    path('request-data/', views.requestdata, name="requestdata"),
-    path('mekanisme/', views.mekanisme, name=" mekanisme"),
-    path('dispute-resolution/', views.disputeresolution, name=" disputeresolution"),
+    path('mekanisme/', views.mekanisme, name="mekanisme"),
+    path('dispute-resolution/', views.disputeresolution, name="disputeresolution"),
 
     path('search/', views.search, name="search"),
     path('data-opd/<int:pk>', views.data_opd, name="data_opd"),
@@ -46,6 +45,11 @@ urlpatterns = [
     path('laporan/', views.laporan, name="laporan"),
     path('sop/', views.sop, name="sop"),
     path('regulasi/', views.regulasi, name="regulasi"),
+
+    path('kegiatan/', views.kegiatan, name="kegiatan"),
+    path('agenda/', views.agenda, name="agenda"),
+    path('hakmasyarakat/', views.hakmasyarakat, name="hakmasyarakat"),
+    path('akuntabilitas/', views.akuntabilitas, name="akuntabilitas"),
     
     # path('error/', views.error_404_view, name="error"),
     

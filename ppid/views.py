@@ -609,9 +609,6 @@ def DIP(request):
     }
     return render(request, 'ppid/DIP.html', context)
 
-def requestdata(request):
-    return render(request, 'ppid/request-data.html')
-
 def mekanisme(request):
     return render(request, 'ppid/mekanisme.html')
 
@@ -833,6 +830,8 @@ def standarharga(request):
     return render(request, 'ppid/standarharga.html', context)
 
 def permintaandata(request):
+    show = Form_information.objects.all()
+
     dip = Data.objects.all()
     dip_count = dip.count()
 
@@ -849,6 +848,7 @@ def permintaandata(request):
     opd_count = Dinas.objects.all().annotate(jumlah=subQry)
 
     context = {
+        'show':show,
         'dip_count':dip_count,
         'dip3_count':dip3_count,
         'dip2_count':dip2_count,
@@ -1064,3 +1064,147 @@ def regulasi(request):
         'opd_count':opd_count,
     }
     return render(request, 'ppid/regulasi.html', context)
+
+def kegiatan(request):
+    show = Data.objects.filter(title__icontains='kegiatan')
+    dip = Data.objects.all()
+    dip_count = dip.count()
+
+    dip_1 = Data.objects.filter(type_data = '2')
+    dip1_count = dip_1.count()
+
+    dip_2 = Data.objects.filter(type_data = '3')
+    dip2_count = dip_2.count()
+
+    dip_3 = Data.objects.filter(type_data = '4')
+    dip3_count = dip_3.count()
+
+    subQry = Subquery(Data.objects.filter(dinas_id = OuterRef('id')).values('dinas_id').annotate(jml=Count('id')).values('jml'))
+    opd_count = Dinas.objects.all().annotate(jumlah=subQry)
+
+    p = Paginator(show, 10)
+
+    page_num = request.GET.get('page',1)
+
+    try:
+        show = p.page(page_num)
+    except EmptyPage:
+        show = p.page(1)
+
+    context = {
+        'show':show,
+        'dip_count':dip_count,
+        'dip3_count':dip3_count,
+        'dip2_count':dip2_count,
+        'dip1_count':dip1_count,
+        'opd_count':opd_count,
+    }
+    return render(request, 'ppid/kegiatan.html', context)
+
+def agenda(request):
+    show = Data.objects.filter(title__icontains='agenda')
+    dip = Data.objects.all()
+    dip_count = dip.count()
+
+    dip_1 = Data.objects.filter(type_data = '2')
+    dip1_count = dip_1.count()
+
+    dip_2 = Data.objects.filter(type_data = '3')
+    dip2_count = dip_2.count()
+
+    dip_3 = Data.objects.filter(type_data = '4')
+    dip3_count = dip_3.count()
+
+    subQry = Subquery(Data.objects.filter(dinas_id = OuterRef('id')).values('dinas_id').annotate(jml=Count('id')).values('jml'))
+    opd_count = Dinas.objects.all().annotate(jumlah=subQry)
+
+    p = Paginator(show, 10)
+
+    page_num = request.GET.get('page',1)
+
+    try:
+        show = p.page(page_num)
+    except EmptyPage:
+        show = p.page(1)
+
+    context = {
+        'show':show,
+        'dip_count':dip_count,
+        'dip3_count':dip3_count,
+        'dip2_count':dip2_count,
+        'dip1_count':dip1_count,
+        'opd_count':opd_count,
+    }
+    return render(request, 'ppid/agenda.html', context)
+
+def hakmasyarakat(request):
+    show = Data.objects.filter(title__icontains='masyarakat')
+    dip = Data.objects.all()
+    dip_count = dip.count()
+
+    dip_1 = Data.objects.filter(type_data = '2')
+    dip1_count = dip_1.count()
+
+    dip_2 = Data.objects.filter(type_data = '3')
+    dip2_count = dip_2.count()
+
+    dip_3 = Data.objects.filter(type_data = '4')
+    dip3_count = dip_3.count()
+
+    subQry = Subquery(Data.objects.filter(dinas_id = OuterRef('id')).values('dinas_id').annotate(jml=Count('id')).values('jml'))
+    opd_count = Dinas.objects.all().annotate(jumlah=subQry)
+
+    p = Paginator(show, 10)
+
+    page_num = request.GET.get('page',1)
+
+    try:
+        show = p.page(page_num)
+    except EmptyPage:
+        show = p.page(1)
+
+    context = {
+        'show':show,
+        'dip_count':dip_count,
+        'dip3_count':dip3_count,
+        'dip2_count':dip2_count,
+        'dip1_count':dip1_count,
+        'opd_count':opd_count,
+    }
+    return render(request, 'ppid/hakmasyarakat.html', context)
+
+def akuntabilitas(request):
+    show = Data.objects.filter(title__icontains='akuntabilitas')
+    dip = Data.objects.all()
+    dip_count = dip.count()
+
+    dip_1 = Data.objects.filter(type_data = '2')
+    dip1_count = dip_1.count()
+
+    dip_2 = Data.objects.filter(type_data = '3')
+    dip2_count = dip_2.count()
+
+    dip_3 = Data.objects.filter(type_data = '4')
+    dip3_count = dip_3.count()
+
+    subQry = Subquery(Data.objects.filter(dinas_id = OuterRef('id')).values('dinas_id').annotate(jml=Count('id')).values('jml'))
+    opd_count = Dinas.objects.all().annotate(jumlah=subQry)
+
+    p = Paginator(show, 10)
+
+    page_num = request.GET.get('page',1)
+
+    try:
+        show = p.page(page_num)
+    except EmptyPage:
+        show = p.page(1)
+
+    context = {
+        'show':show,
+        'dip_count':dip_count,
+        'dip3_count':dip3_count,
+        'dip2_count':dip2_count,
+        'dip1_count':dip1_count,
+        'opd_count':opd_count,
+    }
+    return render(request, 'ppid/akuntabilitas.html', context)
